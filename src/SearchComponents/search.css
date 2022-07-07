@@ -1,0 +1,156 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --title-color: white;
+    --background-color: rgb(43, 40, 40);
+    --year-color: rgb(63, 135, 63);
+    --content-color: rgb(206, 194, 194);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+::-webkit-scrollbar-track {
+    background: #f1f1f129;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: var(--year-color);
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(44, 94, 44);
+}
+
+.searchDiv {
+    background-color: rgb(29, 28, 28);
+    padding: 15px;
+}
+
+.searchBar {
+    width: 300px;
+    background-color: rgb(98, 90, 90);
+    height: 34px;
+    display: flex;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.searchIcon {
+    border-left: 1px solid white;
+    border-radius: 0 10px 10px 0px;
+}
+
+.searchIcon svg {
+    height: 34px;
+    width: 34px;
+    fill: white;
+    padding: 4px;
+}
+
+.searchIcon:active svg {
+    padding: 2px;
+}
+.searchIcon:active {
+    background-color: rgb(66, 62, 62);
+    border-radius: 0 10px 10px 0px;
+
+}
+
+.searchBar input {
+    border: none;
+    background-color: rgb(98, 90, 90);
+    color: white;
+    font-size: 16px;
+    padding: 11px;
+    width: 269px;
+    height: 34px;
+    border-radius: 10px 0px 0px 10px;
+
+}
+
+.searchBar input:focus-visible {
+    outline-style: none;
+}
+
+
+.searchedMovies {
+    width: 500px;
+    max-height: 600px;
+    overflow: scroll;
+    background-color: rgba(27, 25, 25, .844);
+    overflow-x: hidden;
+    margin: 5px 0 0 185px;
+    border-radius: 5px;
+}
+
+/*after Link/Router it makes underline this is the remover*/
+.searchedMovies div a {
+    text-decoration: none;
+}
+
+.notFound {
+    transition: 0.3s;
+    width: 500px;
+    position: absolute;
+    z-index: 10;
+    height: 130px;
+    background-color: rgba(27, 25, 25, .844);
+    text-align: center;
+    margin: 5px 0 0 185px;
+    border-radius: 5px;
+
+}
+
+.notFound h2 {
+    color: var(--content-color);
+    font-size: 28px;
+    margin-top: 42px;
+}
+
+.smallMovies {
+    position: absolute;
+    z-index: 10;
+}
+
+.single-smallMovie {
+    display: flex;
+    padding: 5px;
+    margin: 4px;
+    align-items: center;
+    background-color: var(--background-color);
+    justify-content: space-around;
+    border-radius: 5px;
+}
+
+.single-smallMovie img {
+    width: 90px;
+    height: 120px;
+}
+
+.single-smallMovie .info-box {
+    width: 360px;
+}
+
+.single-smallMovie .small-info h2 {
+    color: var(--title-color);
+    margin: 0;
+    font-size: 16px;
+}
+
+.single-smallMovie .small-info h3 {
+    color: var(--year-color);
+    margin: 0;
+    font-size: 14px;
+}
+
+.single-smallMovie p {
+    color: rgb(144, 138, 138);
+    font-size: 12px;
+}
