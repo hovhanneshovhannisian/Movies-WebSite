@@ -8,8 +8,6 @@
 .logo{
   display: flex;
   align-items: center;
-  background-color: rgb(29, 28, 28);
-  padding: 42px 372px 10px;
 }
 
 .logo .logo-icon{
@@ -19,6 +17,41 @@
 .logo h2{
   color: var(--year-color);
   margin: 25px 0 10px;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(29, 28, 28);
+  padding: 30px 40px 10px;
+}
+
+.header .watchlist{
+  position: relative;
+  font-size: 50px;
+  color: var(--year-color);
+  margin-right: 20px;
+  cursor: pointer;
+  border: 3px solid var(--year-color);
+  border-radius: 10px;
+
+}
+
+.header .watchlist p{
+  position: absolute;
+  top: 46px;
+  right: -14px;
+  margin: 0;
+  border: 1px solid;
+  color: var(--content-color);
+  font-size: 18px;
+  border-radius: 15px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  background-color: rgb(63, 61, 61);
+
 }
 
 .sliderMovies{

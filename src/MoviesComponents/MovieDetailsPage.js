@@ -12,30 +12,32 @@ function MovieDetailsPage() {
       <div className='image-info-movie' >
         <img src={movie.image} alt={movie.title} />
         <table>
-          <tr>
-            <td><h2>Title</h2></td>
-            <td><h2>{movie.title}</h2></td>
-          </tr>
-          <tr>
-            <td>Release</td>
-            <td>{movie.release}</td>
-          </tr>
-          <tr>
-            <td>Director</td>
-            <td>{movie.director}</td>
-          </tr>
-          <tr>
-            <td>Duration</td>
-            <td>{movie.duration}</td>
-          </tr>
-          <tr>
-            <td>Actors</td>
-            <td>{movie.actors}</td>
-          </tr>
-          <tr>
-            <td>Genres</td>
-            <td>{movie.genres}</td>
-          </tr>
+          <tbody>
+            <tr>
+              <td><h2>Title</h2></td>
+              <td><h2>{movie.title}</h2></td>
+            </tr>
+            <tr>
+              <td>Release</td>
+              <td>{movie.release}</td>
+            </tr>
+            <tr>
+              <td>Director</td>
+              <td>{movie.director}</td>
+            </tr>
+            <tr>
+              <td>Duration</td>
+              <td>{movie.duration}</td>
+            </tr>
+            <tr>
+              <td>Actors</td>
+              <td>{movie.actors}</td>
+            </tr>
+            <tr>
+              <td>Genres</td>
+              <td>{movie.genres}</td>
+            </tr>
+          </tbody>
         </table>
       </div>
       <div className='describtion'>

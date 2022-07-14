@@ -6,22 +6,28 @@ import MovieSlide from './MoviesComponents/MovieSlide';
 import Footer from './Footer';
 import MovieDetailsPage from './MoviesComponents/MovieDetailsPage';
 import Logo from './Logo';
+import { GlobalProvider } from './context/GlobalState';
+import WLMovie from './MoviesComponents/WLMovie';
 
 function App() {
+
   return (
-    <Router>
-      <div className="App">
-        <a href='/'><Logo /></a>
-        <Search />
-        <MovieSlide />
-        <div  id='singl'></div>
-        <Routes>
-          <Route path="/" element={<Movies />} />
-          <Route path="/movies/:id" element={<MovieDetailsPage />} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <GlobalProvider>
+      <Router>
+        <div className="App">
+          <Logo />
+          <Search />
+          <MovieSlide />
+          <div id='singl'></div>
+          <Routes>
+            <Route path="/" element={<Movies />} />
+            <Route path="/movies/:id" element={<MovieDetailsPage />} />
+            <Route path='/watch-list' element={<WLMovie />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </GlobalProvider>
   );
 }
 

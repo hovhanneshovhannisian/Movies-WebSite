@@ -1,17 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { MdPlaylistAdd, MdPlaylistAddCheck } from 'react-icons/md'
 import './Movies.css'
 import { Link as LinkForScroll } from 'react-scroll'
 import { Link } from 'react-router-dom'
+import { GlobalContext } from '../context/GlobalState'
 
-function Movie(props) {
-
+ function Movie(props) {
   const [isListed, setIsListed] = useState(props.isListed)
+  const { addMovieToWatchList, watchList, removeMovieFromWatchList } = useContext(GlobalContext)
+  console.log('movie componetnt rendered');
+
+  useEffect(() => {
+    props = {
+      ...props,
+      isListed: !isListed
+    }
+  }, [isListed])
+
+  function added() {
+    setIsListed(!isListed)
+    !isListed ? addMovieToWatchList(props) : removeMovieFromWatchList(props)
+  }
 
   return (
     <div className='single-movie'>
 
-      <div className={isListed ? "WatchLaterAdded" : 'WatchLater'} onClick={() => setIsListed(!isListed)}>
+      <div className={isListed ? "WatchLaterAdded" : 'WatchLater'} onClick={() => added()} title={isListed ? "Remove From Watch Later" : "Add To Watch Later"}>
         {isListed ? <MdPlaylistAddCheck /> : <MdPlaylistAdd />}
       </div>
 

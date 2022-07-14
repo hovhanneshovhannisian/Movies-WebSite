@@ -1,12 +1,28 @@
 import './Movies.css';
 import Movie from './Movie';
 import movies from '../data/data'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import ReactPaginate from 'react-paginate';
 import { Link as LinkForScroll } from 'react-scroll'
+import { GlobalContext } from '../context/GlobalState'
+
 
 function Movies() {
-    const sortedMovies = movies.sort((objA, objB) => Number(objB.release) - Number(objA.release));
+    const { watchList } = useContext(GlobalContext)
+
+    let sortedMovies = []
+    if (watchList.length > 0) {
+        movies.forEach((movie, index) => {
+            for (let i = 0; i < watchList.length; i++) {
+                if (watchList[i].id === movie.id) {
+                    movies[index] = watchList[i]
+                }
+            }
+        })
+        sortedMovies = movies.sort((objA, objB) => Number(objB.release) - Number(objA.release));
+    } else {
+        sortedMovies = movies.sort((objA, objB) => Number(objB.release) - Number(objA.release));
+    }
 
     const [pageNumber, setPageNumber] = useState(0);
 
@@ -15,7 +31,8 @@ function Movies() {
     const pageCount = Math.ceil(sortedMovies.length / moviesPerPage)
 
     const displayMovies = sortedMovies.slice(pagesVisited, pagesVisited + moviesPerPage);
-    
+
+
     const displayedMovieItems = displayMovies.map((movie) => {
         return (
             <div key={movie.id} >
