@@ -12,12 +12,11 @@ function reducer (state, action) {
     switch(action.type){
         case "ADD_MOVIE_TO_WATCHLIST":
             return{
-                ...state,
                 watchList: [action.payload, ...state.watchList],
             }
 
         case "REMOVE_MOVIE_FROM_WATCHLIST":
-            const filtered = state.watchList.filter((addedMovie) => addedMovie.id !== action.payload.id )
+            const filtered = state.watchList.filter((existMovie) =>   existMovie.id !== action.payload.id )
             return {
                 watchList: [...filtered]
             }

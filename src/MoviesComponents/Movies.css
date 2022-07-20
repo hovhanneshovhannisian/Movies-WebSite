@@ -81,6 +81,7 @@
   background-color: rgb(63, 61, 61);
   position: relative;
   padding-top: 125px;
+
 }
 
 
@@ -89,7 +90,7 @@
   flex-wrap: wrap;
   max-width: 920px;
   min-height: 1150px;
-  padding: 0 20px;
+  padding: 0 20px 20px;
 }
 
 /*after Link/Router it makes underline this is the remover*/
@@ -234,6 +235,8 @@ padding: 20px 40px;
   padding: 30px 0 60px;
 }
 
+/* WatchList */
+
 .WatchLater{
   width: 55px;
   height: 65px;
@@ -277,4 +280,24 @@ padding: 20px 40px;
 .WatchLaterAdded svg{
   font-size: 50px;
   fill: #e3d6d6;
+}
+
+.emptyWL{
+  text-align: center;
+  font-size: 37px;
+  color: var(--year-color);
+  margin: 0;
+  padding: 50px 0 70px;
+}
+
+.WatchList .itemsWL{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 20px 20px;
+}
+
+.WatchList h2{
+  text-align: center;
+  font-size: 37px;
+  color: var(--year-color);
 }

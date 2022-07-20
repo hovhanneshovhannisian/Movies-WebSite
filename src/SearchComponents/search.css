@@ -45,6 +45,7 @@
 .searchIcon {
     border-left: 1px solid white;
     border-radius: 0 10px 10px 0px;
+    height: 34px;
 }
 
 .searchIcon svg {

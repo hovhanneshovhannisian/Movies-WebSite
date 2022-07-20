@@ -34,6 +34,7 @@ function Movies() {
 
 
     const displayedMovieItems = displayMovies.map((movie) => {
+        // console.log(movie);
         return (
             <div key={movie.id} >
                 <Movie {...movie} />

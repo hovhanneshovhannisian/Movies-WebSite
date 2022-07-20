@@ -30,26 +30,35 @@ function WLMovie() {
     }
 
 
-    return (<div className='MoviesBackground' id='movies'>
-        <div className='Movies' >
-            {displayedMovieItems}
+    return (
+        <div className='MoviesBackground' id='movies'>
+
+            {watchList.length > 0 ?
+                <div className='WatchList' >
+                    <h2>Movies In Watch List</h2>
+                    <div className='itemsWL'>
+                        {displayedMovieItems}
+                    </div>
+                </div>
+                : <h3 className='emptyWL'>Watch List Is Empty</h3>}
+
+
+            {watchList.length > moviesPerPage && <div className='Pagination' >
+                <LinkForScroll to='movies' smooth={true} duration={200}>
+                    <ReactPaginate
+                        previousLabel={"<"}
+                        nextLabel={">"}
+                        pageCount={pageCount}
+                        onPageChange={pageChange}
+                        containerClassName={"paginationBtns"}
+                        previousLinkClassName={"prevBtn"}
+                        nextLinkClassName={"nextBtn"}
+                        disabledClassName={"disabledPage"}
+                        activeClassName={"activePage"}
+                    />
+                </LinkForScroll>
+            </div>}
         </div>
-        {watchList.length > moviesPerPage && <div className='Pagination' >
-            <LinkForScroll to='movies' smooth={true} duration={200}>
-                <ReactPaginate
-                    previousLabel={"<"}
-                    nextLabel={">"}
-                    pageCount={pageCount}
-                    onPageChange={pageChange}
-                    containerClassName={"paginationBtns"}
-                    previousLinkClassName={"prevBtn"}
-                    nextLinkClassName={"nextBtn"}
-                    disabledClassName={"disabledPage"}
-                    activeClassName={"activePage"}
-                />
-            </LinkForScroll>
-        </div>}
-    </div>
     )
 }
 

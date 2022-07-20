@@ -1,25 +1,25 @@
-.App{
+.App {
     width: 920px;
     margin: auto;
 }
 
-.App a{
+.App a {
     text-decoration: none;
 }
 
-.footer{
+.footer {
     background-color: rgb(53, 126, 53);
     text-align: center;
     height: 120px;
 }
 
-.footer p{
+.footer p {
     color: rgb(206, 194, 194);
     margin: 0;
     font-size: 13px;
 }
 
-.footer .info{
+.footer .info {
     padding-top: 80px;
 }
 

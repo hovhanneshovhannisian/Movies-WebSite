@@ -4,10 +4,13 @@ import { RiMovie2Line } from 'react-icons/ri'
 import { GlobalContext } from './context/GlobalState'
 import './MoviesComponents/Movies.css'
 import { Link } from 'react-router-dom'
+import { Link as LinkForScroll } from 'react-scroll'
 
-function Logo() {
+function Header() {
 
     const { watchList } = useContext(GlobalContext)
+
+    console.log(watchList.length);
 
     return (
         <div className='header'>
@@ -17,14 +20,17 @@ function Logo() {
                     <h2>Trailers.</h2>
                 </div>
             </Link>
-            <Link to="/watch-list">
-                <div className='watchlist' >
-                    <p>{watchList.length}</p>
-                    <RiMovie2Line />
-                </div>
-            </Link>
+            
+            <LinkForScroll to='singl' smooth={true}>
+                <Link to="/watch-list">
+                    <div className='watchlist' >
+                        <p>{watchList.length}</p>
+                        <RiMovie2Line />
+                    </div>
+                </Link>
+            </LinkForScroll>
         </div>
     )
 }
 
-export default Logo
+export default Header

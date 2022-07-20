@@ -1,24 +1,24 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, memo } from 'react'
 import { MdPlaylistAdd, MdPlaylistAddCheck } from 'react-icons/md'
 import './Movies.css'
 import { Link as LinkForScroll } from 'react-scroll'
 import { Link } from 'react-router-dom'
 import { GlobalContext } from '../context/GlobalState'
 
- function Movie(props) {
+function Movie(props) {
   const [isListed, setIsListed] = useState(props.isListed)
   const { addMovieToWatchList, watchList, removeMovieFromWatchList } = useContext(GlobalContext)
-  console.log('movie componetnt rendered');
 
-  useEffect(() => {
+  // console.count(`mouted: `)
+  
+  function added() {
+    // console.log(`${props.id} movie is clicked`)
+
+    setIsListed((prevState) => !prevState)
     props = {
       ...props,
       isListed: !isListed
     }
-  }, [isListed])
-
-  function added() {
-    setIsListed(!isListed)
     !isListed ? addMovieToWatchList(props) : removeMovieFromWatchList(props)
   }
 
@@ -45,4 +45,10 @@ import { GlobalContext } from '../context/GlobalState'
   )
 }
 
-export default Movie
+export default memo(Movie, (prevProps, nextProps) => {
+  if (prevProps.id === nextProps.id) {
+    return true
+  } else {
+    return false
+  }
+})

@@ -8,13 +8,13 @@ import { Link as LinkForScroll } from 'react-scroll'
 function DuringSearch({ matchedMovies, getAction }) {
   const searchMovies = matchedMovies.map((movie) => {
     return (
-      <LinkForScroll to='singl' smooth={true}>
-        <div key={movie.id} onClick={() => getAction()} >
+      <div key={movie.id} onClick={() => getAction()} >
+        <LinkForScroll to='singl' smooth={true}>
           <Link to={`/movies/${movie.id}`}>
             <SmallMovie {...movie} />
           </Link>
-        </div>
-      </LinkForScroll>
+        </LinkForScroll>
+      </div>
     )
   })
 

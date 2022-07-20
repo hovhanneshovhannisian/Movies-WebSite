@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
 import movies from '../data/data'
 import DuringSearch from './DuringSearch';
+import { Link } from 'react-router-dom'
 import './search.css'
 
 function Search() {
@@ -22,12 +23,13 @@ function Search() {
         setMatchedMovies(filtered)
     }
 
-    function getAction(){
+    function getAction() {
         setMatchedMovies([])
         setMovieTitle("")
     }
 
     function searchBox() {
+        console.count("dsds: ")
         if (movieTitle.length !== 0 && matchedMovies.length > 0) {
             return (
                 <div className='smallMovies' >
@@ -48,9 +50,12 @@ function Search() {
         <div className='searchDiv'>
             <div className='searchBar'>
                 <input onKeyUp={searchingMovies} onChange={handleChange} placeholder={'Search...'} value={movieTitle} />
-                <div className='searchIcon'>
-                    <AiOutlineSearch />
-                </div>
+                
+                <Link to='/searched-movies' >
+                    <div className='searchIcon'>
+                        <AiOutlineSearch />
+                    </div>
+                </Link>
             </div>
             <div>{searchBox()}</div>
         </div>
