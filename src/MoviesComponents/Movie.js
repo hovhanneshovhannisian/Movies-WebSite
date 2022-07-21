@@ -1,25 +1,29 @@
-import React, { useState, useContext, memo } from 'react'
+import React, { useEffect, useState } from 'react'
 import { MdPlaylistAdd, MdPlaylistAddCheck } from 'react-icons/md'
 import './Movies.css'
 import { Link as LinkForScroll } from 'react-scroll'
 import { Link } from 'react-router-dom'
-import { GlobalContext } from '../context/GlobalState'
+import { useDispatch, useSelector } from 'react-redux'
+import { RD_addMovieToWatchList, RD_removeMovieFromWatchList, selectWatchList } from '../Redux/WatchListSlice'
 
 function Movie(props) {
+
+  const watchList = useSelector(selectWatchList)
+  const dispatch = useDispatch()
   const [isListed, setIsListed] = useState(props.isListed)
-  const { addMovieToWatchList, watchList, removeMovieFromWatchList } = useContext(GlobalContext)
 
-  // console.count(`mouted: `)
-  
+  useEffect(() => {
+    sessionStorage.setItem("watchList", JSON.stringify(watchList))
+  }, [watchList])
+
+
   function added() {
-    // console.log(`${props.id} movie is clicked`)
-
-    setIsListed((prevState) => !prevState)
+    setIsListed(!isListed)
     props = {
       ...props,
       isListed: !isListed
     }
-    !isListed ? addMovieToWatchList(props) : removeMovieFromWatchList(props)
+    !isListed ? dispatch(RD_addMovieToWatchList(props)) : dispatch(RD_removeMovieFromWatchList(props))
   }
 
   return (
@@ -45,10 +49,4 @@ function Movie(props) {
   )
 }
 
-export default memo(Movie, (prevProps, nextProps) => {
-  if (prevProps.id === nextProps.id) {
-    return true
-  } else {
-    return false
-  }
-})
+export default Movie

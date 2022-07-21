@@ -1,14 +1,16 @@
 import './Movies.css';
 import Movie from './Movie';
 import movies from '../data/data'
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import ReactPaginate from 'react-paginate';
 import { Link as LinkForScroll } from 'react-scroll'
-import { GlobalContext } from '../context/GlobalState'
+import { useSelector } from 'react-redux'
+import { selectWatchList } from '../Redux/WatchListSlice'
 
 
 function Movies() {
-    const { watchList } = useContext(GlobalContext)
+    
+    const watchList = useSelector(selectWatchList)
 
     let sortedMovies = []
     if (watchList.length > 0) {
@@ -34,7 +36,6 @@ function Movies() {
 
 
     const displayedMovieItems = displayMovies.map((movie) => {
-        // console.log(movie);
         return (
             <div key={movie.id} >
                 <Movie {...movie} />

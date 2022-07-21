@@ -58,6 +58,7 @@
 .searchIcon:active svg {
     padding: 2px;
 }
+
 .searchIcon:active {
     background-color: rgb(66, 62, 62);
     border-radius: 0 10px 10px 0px;
@@ -154,4 +155,38 @@
 .single-smallMovie p {
     color: rgb(144, 138, 138);
     font-size: 12px;
+}
+
+.findmovies {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 20px 20px;
+}
+
+.MoviesBackground {
+    background-color: rgb(63, 61, 61);
+    position: relative;
+    padding-top: 125px;
+}
+
+.SearchMoviesresult{
+    padding: 20px 0;
+}
+
+.SearchMoviesresult h2{
+    text-align: center;
+    color: var(--title-color);
+    font-weight: 100;
+    font-size: 30px;
+}
+.SearchMoviesresult h3{
+    text-align: center;
+    margin: 0;
+    color: var(--content-color);
+    font-weight: 100;
+    font-size: 20px;
+}
+
+.SearchMoviesresult h2 span{
+    color: var(--year-color);
 }

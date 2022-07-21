@@ -1,16 +1,18 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { BiCameraMovie } from 'react-icons/bi'
 import { RiMovie2Line } from 'react-icons/ri'
-import { GlobalContext } from './context/GlobalState'
-import './MoviesComponents/Movies.css'
+import '../MoviesComponents/Movies.css'
 import { Link } from 'react-router-dom'
 import { Link as LinkForScroll } from 'react-scroll'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectWatchList } from '../Redux/WatchListSlice'
+
+
 
 function Header() {
 
-    const { watchList } = useContext(GlobalContext)
-
-    console.log(watchList.length);
+    const watchList = useSelector(selectWatchList)
+    
 
     return (
         <div className='header'>
@@ -24,7 +26,7 @@ function Header() {
             <LinkForScroll to='singl' smooth={true}>
                 <Link to="/watch-list">
                     <div className='watchlist' >
-                        <p>{watchList.length}</p>
+                    {watchList.length > 0 && <p>{watchList.length}</p>}
                         <RiMovie2Line />
                     </div>
                 </Link>

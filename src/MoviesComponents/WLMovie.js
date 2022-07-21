@@ -1,13 +1,15 @@
-import React, { useContext, useState } from 'react'
-import { GlobalContext } from '../context/GlobalState'
+import React, { useState } from 'react'
 import Movie from './Movie'
 import './Movies.css';
 import ReactPaginate from 'react-paginate';
 import { Link as LinkForScroll } from 'react-scroll'
+import { useSelector } from 'react-redux'
+import { selectWatchList } from '../Redux/WatchListSlice'
 
 
 function WLMovie() {
-    const { watchList } = useContext(GlobalContext)
+    const watchList = useSelector(selectWatchList)
+
     const [pageNumber, setPageNumber] = useState(0);
 
     const moviesPerPage = 12;

@@ -1,17 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
 import movies from '../data/data'
 import DuringSearch from './DuringSearch';
 import { Link } from 'react-router-dom'
 import './search.css'
+import { useSelector, useDispatch } from 'react-redux';
+import { editMovieName, selectMovieTitle, selectMatchedMovies, setMatchedMovies, setSearchResult, makeStateZero } from '../Redux/SearchSlice';
+import { Link as LinkForScroll } from 'react-scroll'
+import Searched from './Searched';
+
+
+
 
 function Search() {
+    const dispatch = useDispatch()
 
-    const [movieTitle, setMovieTitle] = useState("")
-    const [matchedMovies, setMatchedMovies] = useState([])
+    const movieTitle = useSelector(selectMovieTitle)
+    const matchedMovies = useSelector(selectMatchedMovies)
 
     function handleChange(e) {
-        setMovieTitle(e.target.value)
+        dispatch(editMovieName(e.target.value))
     }
 
     function searchingMovies() {
@@ -20,20 +28,14 @@ function Search() {
             const searchingMovie = movie.title.toLowerCase();
             return searchingMovie.match(titleRegex)
         })
-        setMatchedMovies(filtered)
-    }
-
-    function getAction() {
-        setMatchedMovies([])
-        setMovieTitle("")
+        dispatch(setMatchedMovies(filtered))
     }
 
     function searchBox() {
-        console.count("dsds: ")
         if (movieTitle.length !== 0 && matchedMovies.length > 0) {
             return (
                 <div className='smallMovies' >
-                    <DuringSearch matchedMovies={matchedMovies} getAction={getAction} />
+                    <DuringSearch />
                 </div>
             )
         }
@@ -46,16 +48,30 @@ function Search() {
         }
     }
 
+    function searchCurTitle() {
+        dispatch(setSearchResult(movieTitle, matchedMovies))
+        dispatch(makeStateZero())
+    }
+
+    // window.addEventListener("keyup", (e) => {
+    //     if(e.key === "Enter"){
+    //         searchCurTitle()
+    //     }
+    // })
+
     return (
         <div className='searchDiv'>
             <div className='searchBar'>
                 <input onKeyUp={searchingMovies} onChange={handleChange} placeholder={'Search...'} value={movieTitle} />
-                
-                <Link to='/searched-movies' >
-                    <div className='searchIcon'>
-                        <AiOutlineSearch />
-                    </div>
-                </Link>
+
+                <LinkForScroll to='singl' smooth={true}>
+                    <Link to='/searched-movies' >
+                        <div className='searchIcon' onClick={searchCurTitle}>
+                            <AiOutlineSearch />
+                        </div>
+                    </Link>
+                </LinkForScroll>
+
             </div>
             <div>{searchBox()}</div>
         </div>

@@ -4,12 +4,14 @@ import Movie from './Movie';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Autoplay } from "swiper";
-import { GlobalContext } from '../context/GlobalState'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectWatchList } from '../Redux/WatchListSlice'
+
 
 
 function MovieSlide() {
 
-  const { watchList } = useContext(GlobalContext)
+  const watchList = useSelector(selectWatchList)
 
   if (watchList.length > 0) {
     movies.forEach((movie, index) => {

@@ -1,19 +1,17 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import Movies from '../src/MoviesComponents/Movies';
-import Search from '../src/SearchComponents/Search';
-import Searched from '../src/SearchComponents/Searched';
-import MovieSlide from './MoviesComponents/MovieSlide';
+import Movies from '../MoviesComponents/Movies';
+import Search from '../SearchComponents/Search';
+import Searched from '../SearchComponents/Searched';
+import MovieSlide from '../MoviesComponents/MovieSlide';
 import Footer from './Footer';
-import MovieDetailsPage from './MoviesComponents/MovieDetailsPage';
+import MovieDetailsPage from '../MoviesComponents/MovieDetailsPage';
 import Header from './Header';
-import { GlobalProvider } from './context/GlobalState';
-import WLMovie from './MoviesComponents/WLMovie';
+import WLMovie from '../MoviesComponents/WLMovie';
 
 function App() {
 
   return (
-    <GlobalProvider>
       <Router>
         <div className="App">
           <Header />
@@ -29,7 +27,6 @@ function App() {
           <Footer />
         </div>
       </Router>
-    </GlobalProvider>
   );
 }
 

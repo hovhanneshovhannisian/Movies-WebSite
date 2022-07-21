@@ -1,9 +1,18 @@
 import React from 'react'
 import "./search.css"
+import {useDispatch} from 'react-redux'
+import { makeStateZero } from '../Redux/SearchSlice'
 
 function SmallMovie(movie) {
+
+    const dispatch = useDispatch()
+
+    function clicked(){
+        dispatch(makeStateZero())
+    }
+
     return (
-        <div className='single-smallMovie'>
+        <div className='single-smallMovie' onClick={() => clicked() }>
             <div className='poster'>
                 <img src={movie.image} alt={movie.title} />
             </div>
