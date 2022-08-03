@@ -1,4 +1,3 @@
-
 // REDUCER
 export function watchListReducer(state = initialWatchListState, action) {
     switch (action.type) {

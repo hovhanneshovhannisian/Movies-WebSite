@@ -81,15 +81,19 @@
     outline-style: none;
 }
 
-
+.searchBoxPar{
+    display: flex;
+    justify-content: center;
+}
 .searchedMovies {
     width: 500px;
     max-height: 600px;
     overflow: scroll;
     background-color: rgba(27, 25, 25, .844);
     overflow-x: hidden;
-    margin: 5px 0 0 185px;
     border-radius: 5px;
+    position: absolute;
+    z-index: 10;
 }
 
 /*after Link/Router it makes underline this is the remover*/
@@ -105,9 +109,7 @@
     height: 130px;
     background-color: rgba(27, 25, 25, .844);
     text-align: center;
-    margin: 5px 0 0 185px;
     border-radius: 5px;
-
 }
 
 .notFound h2 {
@@ -116,14 +118,10 @@
     margin-top: 42px;
 }
 
-.smallMovies {
-    position: absolute;
-    z-index: 10;
-}
-
 .single-smallMovie {
     display: flex;
     padding: 5px;
+    gap: 5px;
     margin: 4px;
     align-items: center;
     background-color: var(--background-color);
@@ -143,18 +141,18 @@
 .single-smallMovie .small-info h2 {
     color: var(--title-color);
     margin: 0;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .single-smallMovie .small-info h3 {
     color: var(--year-color);
     margin: 0;
-    font-size: 14px;
+    font-size: 0.8rem;
 }
 
 .single-smallMovie p {
     color: rgb(144, 138, 138);
-    font-size: 12px;
+    font-size: 0.75rem;
 }
 
 .findmovies {
@@ -169,17 +167,18 @@
     padding-top: 125px;
 }
 
-.SearchMoviesresult{
+.SearchMoviesresult {
     padding: 20px 0;
 }
 
-.SearchMoviesresult h2{
+.SearchMoviesresult h2 {
     text-align: center;
     color: var(--title-color);
     font-weight: 100;
     font-size: 30px;
 }
-.SearchMoviesresult h3{
+
+.SearchMoviesresult h3 {
     text-align: center;
     margin: 0;
     color: var(--content-color);
@@ -187,6 +186,25 @@
     font-size: 20px;
 }
 
-.SearchMoviesresult h2 span{
+.SearchMoviesresult h2 span {
     color: var(--year-color);
+}
+
+
+@media screen and (max-width: 500px) {
+    .searchedMovies {
+        top: 170px;
+        margin: auto;
+        width: 90%;
+    }
+
+    .notFound {
+        width: 90%;
+        margin: auto;
+        margin-top: 3px;
+    }
+
+    .findmovies {
+        justify-content: center;
+    }
 }

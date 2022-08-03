@@ -7,10 +7,6 @@ import './search.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { editMovieName, selectMovieTitle, selectMatchedMovies, setMatchedMovies, setSearchResult, makeStateZero } from '../Redux/SearchSlice';
 import { Link as LinkForScroll } from 'react-scroll'
-import Searched from './Searched';
-
-
-
 
 function Search() {
     const dispatch = useDispatch()
@@ -33,11 +29,7 @@ function Search() {
 
     function searchBox() {
         if (movieTitle.length !== 0 && matchedMovies.length > 0) {
-            return (
-                <div className='smallMovies' >
-                    <DuringSearch />
-                </div>
-            )
+            return (<DuringSearch />)
         }
         if (movieTitle.length !== 0 && matchedMovies.length == 0) {
             return (
@@ -53,12 +45,6 @@ function Search() {
         dispatch(makeStateZero())
     }
 
-    // window.addEventListener("keyup", (e) => {
-    //     if(e.key === "Enter"){
-    //         searchCurTitle()
-    //     }
-    // })
-
     return (
         <div className='searchDiv'>
             <div className='searchBar'>
@@ -73,7 +59,7 @@ function Search() {
                 </LinkForScroll>
 
             </div>
-            <div>{searchBox()}</div>
+            <div className='searchBoxPar'>{searchBox()}</div>
         </div>
     )
 }

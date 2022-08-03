@@ -19,10 +19,10 @@ function App() {
           <MovieSlide />
           <div id='singl'></div>
           <Routes>
-            <Route path="/" element={<Movies />} key='1' />
-            <Route path="/movies/:id" element={<MovieDetailsPage key='2'/>}  />
-            <Route path='/watch-list' element={<WLMovie key='3'/>}  />
-            <Route path="/searched-movies" element={<Searched key='4'/>}  />
+            <Route path="/" element={<Movies />} />
+            <Route path="/movies/:id" element={<MovieDetailsPage />}  />
+            <Route path='/watch-list' element={<WLMovie />}  />
+            <Route path="/searched-movies" element={<Searched />}  />
           </Routes>
           <Footer />
         </div>

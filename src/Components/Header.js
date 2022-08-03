@@ -10,14 +10,12 @@ import { selectWatchList } from '../Redux/WatchListSlice'
 
 
 function Header() {
-
     const watchList = useSelector(selectWatchList)
-    
 
     return (
         <div className='header'>
             <Link to=''>
-                <div className='logo'>
+                <div className='logo' >
                     <BiCameraMovie className='logo-icon' />
                     <h2>Trailers.</h2>
                 </div>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useParams } from 'react-router-dom'
 import movies from '../data/data'
 import './Movies.css'
@@ -45,7 +45,7 @@ function MovieDetailsPage() {
         <p>{movie.describtion}</p>
       </div>
       <div className='iframe-div'>
-        <iframe width="560" height="315" src={movie.youtubeLink} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="560" height="315" src={movie.youtubeLink} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
       </div>
     </section>
   )

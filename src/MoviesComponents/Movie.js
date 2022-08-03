@@ -7,15 +7,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { RD_addMovieToWatchList, RD_removeMovieFromWatchList, selectWatchList } from '../Redux/WatchListSlice'
 
 function Movie(props) {
+  const [isListed, setIsListed] = useState(props.isListed)
 
   const watchList = useSelector(selectWatchList)
   const dispatch = useDispatch()
-  const [isListed, setIsListed] = useState(props.isListed)
 
   useEffect(() => {
     sessionStorage.setItem("watchList", JSON.stringify(watchList))
   }, [watchList])
-
 
   function added() {
     setIsListed(!isListed)
@@ -49,4 +48,4 @@ function Movie(props) {
   )
 }
 
-export default Movie
+export default Movie;

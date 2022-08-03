@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from 'react'
+import React from 'react'
 import Movie from '../MoviesComponents/Movie'
 import { useSelector } from 'react-redux'
 import { selectPrevMovieTitle, selectPrevMovies } from '../Redux/SearchSlice'
