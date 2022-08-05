@@ -1,16 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react'
-import movies from '../data/data'
+import React, { useState } from 'react'
 import Movie from './Movie';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Autoplay } from "swiper";
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { selectWatchList } from '../Redux/WatchListSlice'
+import { selectMovies } from '../Redux/MoviesSlice';
 
 
 
 function MovieSlide() {
-
+  const movies = useSelector(selectMovies)
   const watchList = useSelector(selectWatchList)
   const [slidesPerViewResp, setSlidesPerViewResp] = useState(4)
 

@@ -1,9 +1,11 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import movies from '../data/data'
+import { useSelector } from 'react-redux'
 import './Movies.css'
+import { selectMovies } from '../Redux/MoviesSlice'
 
 function MovieDetailsPage() {
+  const movies = useSelector(selectMovies)
   const { id } = useParams()
   const movie = movies.find((movie) => movie.id == id);
 

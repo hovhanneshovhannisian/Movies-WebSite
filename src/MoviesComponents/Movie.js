@@ -12,6 +12,7 @@ function Movie(props) {
   const watchList = useSelector(selectWatchList)
   const dispatch = useDispatch()
 
+  console.log("mounted for: " + props.title)
   useEffect(() => {
     sessionStorage.setItem("watchList", JSON.stringify(watchList))
   }, [watchList])

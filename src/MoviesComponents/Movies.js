@@ -1,15 +1,15 @@
 import './Movies.css';
 import Movie from './Movie';
-import movies from '../data/data'
-import React, { useMemo, useState } from 'react'
+import React, { useState } from 'react'
 import ReactPaginate from 'react-paginate';
 import { Link as LinkForScroll } from 'react-scroll'
 import { useSelector } from 'react-redux'
 import { selectWatchList } from '../Redux/WatchListSlice'
+import { selectMovies } from '../Redux/MoviesSlice';
 
 
 function Movies() {
-    
+    const movies = useSelector(selectMovies)
     const watchList = useSelector(selectWatchList)
 
     let sortedMovies = []
@@ -33,8 +33,6 @@ function Movies() {
     const pageCount = Math.ceil(sortedMovies.length / moviesPerPage)
 
     const displayMovies = sortedMovies.slice(pagesVisited, pagesVisited + moviesPerPage);
-
-    // const a = useMemo(() => displayMovies, [] )
 
     const displayedMovieItems = displayMovies.map((movie) => {
         return (

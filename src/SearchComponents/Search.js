@@ -1,16 +1,16 @@
 import React from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'
-import movies from '../data/data'
 import DuringSearch from './DuringSearch';
 import { Link } from 'react-router-dom'
 import './search.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { editMovieName, selectMovieTitle, selectMatchedMovies, setMatchedMovies, setSearchResult, makeStateZero } from '../Redux/SearchSlice';
 import { Link as LinkForScroll } from 'react-scroll'
+import { selectMovies } from '../Redux/MoviesSlice';
 
 function Search() {
     const dispatch = useDispatch()
-
+    const movies = useSelector(selectMovies)
     const movieTitle = useSelector(selectMovieTitle)
     const matchedMovies = useSelector(selectMatchedMovies)
 
