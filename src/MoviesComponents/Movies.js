@@ -1,6 +1,6 @@
 import './Movies.css';
 import Movie from './Movie';
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ReactPaginate from 'react-paginate';
 import { Link as LinkForScroll } from 'react-scroll'
 import { useSelector } from 'react-redux'
@@ -26,6 +26,10 @@ function Movies() {
         sortedMovies = movies.sort((objA, objB) => Number(objB.release) - Number(objA.release));
     }
 
+    useEffect(() => {
+      sessionStorage.setItem("watchList", JSON.stringify(watchList))
+    }, [watchList])
+
     const [pageNumber, setPageNumber] = useState(0);
 
     const moviesPerPage = 12;
@@ -34,17 +38,14 @@ function Movies() {
 
     const displayMovies = sortedMovies.slice(pagesVisited, pagesVisited + moviesPerPage);
 
-    const displayedMovieItems = displayMovies.map((movie) => {
-        return (
-            <div key={movie.id} >
-                <Movie {...movie} />
-            </div>
-        )
-    })
-
     function pageChange({ selected }) {
         setPageNumber(selected)
     }
+    
+    const displayedMovieItems = displayMovies.map((movie) => {
+        return <Movie key={movie.id} {...movie} />
+    })
+
 
     return (
         <div className='MoviesBackground' id='movies'>
@@ -66,8 +67,9 @@ function Movies() {
                     />
                 </LinkForScroll>
             </div>
+
         </div>
     )
 }
 
-export default Movies
+export default Movies;

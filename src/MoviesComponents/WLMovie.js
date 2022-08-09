@@ -18,13 +18,8 @@ function WLMovie() {
 
     const displayMovies = watchList.slice(pagesVisited, pagesVisited + moviesPerPage);
 
-
     const displayedMovieItems = displayMovies.map((movie) => {
-        return (
-            <div key={movie.id} >
-                <Movie {...movie} />
-            </div>
-        )
+        return <Movie {...movie} key={movie.id}/>
     })
 
     function pageChange({ selected }) {

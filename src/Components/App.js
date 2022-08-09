@@ -9,14 +9,13 @@ import MovieDetailsPage from '../MoviesComponents/MovieDetailsPage';
 import Header from './Header';
 import WLMovie from '../MoviesComponents/WLMovie';
 import api from '../API/moviesAPI';
-import { useDispatch,useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useEffect } from 'react';
-import { selectMovies, fetchedMovies } from '../Redux/MoviesSlice';
+import { fetchedMovies } from '../Redux/MoviesSlice';
 
 function App() {
   const dispatch = useDispatch()
-  const movies = useSelector(selectMovies)
-  
+
   useEffect(() => {
     async function fetchMovies() {
       try {

@@ -1,23 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { memo, useState } from 'react'
 import { MdPlaylistAdd, MdPlaylistAddCheck } from 'react-icons/md'
 import './Movies.css'
 import { Link as LinkForScroll } from 'react-scroll'
 import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { RD_addMovieToWatchList, RD_removeMovieFromWatchList, selectWatchList } from '../Redux/WatchListSlice'
+import { useDispatch } from 'react-redux'
+import { RD_addMovieToWatchList, RD_removeMovieFromWatchList } from '../Redux/WatchListSlice'
 
 function Movie(props) {
   const [isListed, setIsListed] = useState(props.isListed)
-
-  const watchList = useSelector(selectWatchList)
   const dispatch = useDispatch()
 
-  console.log("mounted for: " + props.title)
-  useEffect(() => {
-    sessionStorage.setItem("watchList", JSON.stringify(watchList))
-  }, [watchList])
-
-  function added() {
+  function toggle() {
     setIsListed(!isListed)
     props = {
       ...props,
@@ -29,7 +22,7 @@ function Movie(props) {
   return (
     <div className='single-movie'>
 
-      <div className={isListed ? "WatchLaterAdded" : 'WatchLater'} onClick={() => added()} title={isListed ? "Remove From Watch Later" : "Add To Watch Later"}>
+      <div className={isListed ? "WatchLaterAdded" : 'WatchLater'} onClick={() => toggle()} title={isListed ? "Remove From Watch Later" : "Add To Watch Later"}>
         {isListed ? <MdPlaylistAddCheck /> : <MdPlaylistAdd />}
       </div>
 
@@ -49,4 +42,4 @@ function Movie(props) {
   )
 }
 
-export default Movie;
+export default memo(Movie);

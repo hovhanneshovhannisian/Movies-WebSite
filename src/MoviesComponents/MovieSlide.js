@@ -26,9 +26,8 @@ function MovieSlide() {
       setSlidesPerViewResp(4)
     }
   }
-  window.addEventListener("resize",a)
   window.addEventListener("load",a)
-
+  window.addEventListener("resize",a)
   if (watchList.length > 0) {
     movies.forEach((movie, index) => {
       for (let i = 0; i < watchList.length; i++) {
@@ -43,10 +42,10 @@ function MovieSlide() {
   const curYear = date.getFullYear()
   const newMovies = movies.filter((movie) => Number(movie.release) === curYear)
 
-  const newMovieItems = newMovies.map((movie) => {
+  const newMovieItems = newMovies.map((movie, index) => {
     return (
-      <SwiperSlide key={movie.id}>
-        <Movie {...movie} />
+      <SwiperSlide key={index}>
+        <Movie {...movie} key={movie.id}/>
       </SwiperSlide>
     )
   })
