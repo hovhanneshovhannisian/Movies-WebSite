@@ -11,7 +11,7 @@ import { selectWatchList } from '../Redux/WatchListSlice'
 
 function Header() {
     const watchList = useSelector(selectWatchList)
-
+    
     return (
         <div className='header'>
             <Link to=''>
