@@ -11,7 +11,7 @@ import { selectMovies } from '../Redux/MoviesSlice';
 function Movies() {
     const movies = useSelector(selectMovies)
     const watchList = useSelector(selectWatchList)
-
+    document.title = "Movie App"
     let sortedMovies = []
     if (watchList.length > 0) {
         movies.forEach((movie, index) => {

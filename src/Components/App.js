@@ -15,7 +15,6 @@ import { fetchedMovies } from '../Redux/MoviesSlice';
 
 function App() {
   const dispatch = useDispatch()
-
   useEffect(() => {
     async function fetchMovies() {
       try {

@@ -14,7 +14,7 @@ function Header() {
     
     return (
         <div className='header'>
-            <Link to=''>
+            <Link to="">
                 <div className='logo' >
                     <BiCameraMovie className='logo-icon' />
                     <h2>Trailers.</h2>

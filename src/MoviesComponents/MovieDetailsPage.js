@@ -8,7 +8,7 @@ function MovieDetailsPage() {
   const movies = useSelector(selectMovies)
   const { id } = useParams()
   const movie = movies.find((movie) => movie.id == id);
-
+document.title = movie.title
   return (
     <section className='details-movie'>
       <div className='image-info-movie' >
